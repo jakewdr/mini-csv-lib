@@ -1,4 +1,12 @@
 def csvToDict (path):
+    """Converts CSV to dictionary and outputs it.
+
+    Args:
+        path (string): The path of the CSV file
+
+    Returns:
+        Dict: The CSV in dictionary form
+    """
     columnCount = int(0); columnNames = []; csvFile = {}; count = int(0)
     file=open(path,'r')
     read = file.readlines()
@@ -25,6 +33,14 @@ def csvToDict (path):
     return csvFile
 
 def csvToList(path):
+    """Converts CSV to list and outputs it.
+
+    Args:
+        path (string): The path of the CSV file
+
+    Returns:
+        List: The CSV in list form
+    """
     columnCount = int(0); columnNames = []; csvFile = []; count = int(0)
     file=open(path,'r')
         
