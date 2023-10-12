@@ -26,7 +26,7 @@ def csvToDict (path):
 
 def csvToList(path):
     columnCount = int(0); columnNames = []; csvFile = []; count = int(0)
-    file=open("dummy.csv",'r')
+    file=open(path,'r')
         
     read = file.readlines()
     rows = len(read)
@@ -52,7 +52,7 @@ def csvToList(path):
     return csvFile
 
 def specificValue(column,row,path):
-    """#Returns a specific value from a CSV table
+    """Returns a specific value from a CSV table
 
     Args:
         column (int): The column in which the value is located
@@ -67,7 +67,7 @@ def specificValue(column,row,path):
     return value
 
 def app(list,path):
-    """ Appends a list to the end of a CSV file.
+    """Appends a list to the end of a CSV file.
 
     Args:
         list (list): The list to be appended to the CSV file
