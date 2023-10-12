@@ -96,4 +96,3 @@ def app(list,path):
     file1 = open(path,"a")
     file1.write("\n" + res[:-2])
     file1.close()
-    
