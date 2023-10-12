@@ -52,6 +52,24 @@ def csvToList(path):
     return csvFile
 
 def specificValue(column,row,path):
+    """#Returns a specific value from a CSV table
+
+    Args:
+        column (int): The column in which the value is located
+        row (int): The row in which the value is located
+        path (str): The path of the CSV file
+
+    Returns:
+        str: String of the requested location, this can be converted.
+    """
     csvList = csvToList(path)
     value = csvList[row][column]
     return value
+
+def app(list,path):
+    """ Appends a list to the end of a CSV file.
+
+    Args:
+        list (list): The list to be appended to the CSV file
+        path (str): The path of the CSV file
+    """
