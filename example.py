@@ -1,7 +1,7 @@
-import miniCsvLib
+import miniCsvLib as mcl
 path = "dummy.csv"
 
-print(miniCsvLib.csvToDict(path))
-print(miniCsvLib.csvToList(path))
-print(miniCsvLib.specificValue(1,1,path))
-
+print(mcl.csvToDict(path))
+print(mcl.csvToList(path))
+print(mcl.specificValue(1,1,path))
+mcl.app(["one","two","three"], "dummy.csv")

@@ -89,3 +89,11 @@ def app(list,path):
         list (list): The list to be appended to the CSV file
         path (str): The path of the CSV file
     """
+    delim = ", "
+    res = '' 
+    for ele in list:
+        res = res + str(ele) + delim
+    file1 = open(path,"a")
+    file1.write("\n" + res[:-2])
+    file1.close()
+    
