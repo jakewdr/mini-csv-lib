@@ -8,29 +8,27 @@ def csvToList(path):
         List: The CSV in list form
     """
     columnCount = int(0); columnNames = []; csvFile = []; count = int(0)
-    file=open(path,'r')
-        
-    read = file.readlines()
-    rows = len(read)
-        
-    for i in range (0,rows):
-        line = read[i] # Reads the line of the for loops index
-        if i == 0:
-            for i in line: # This for loop counts the number of columns for later use
-                if i == ',': 
-                    columnCount = columnCount + 1
-            columnCount = columnCount + 1
-            for i in range(0,columnCount):
-                    columnName = line.split(",")[i]
-                    columnNames.append(columnName.strip())
-            csvFile.append(columnNames)
+    with open(path,'r') as file:
+        read = file.readlines()
+        rows = len(read)
             
-        else:
-            values = []
-            for i in range(0,columnCount):
-                    value = line.split(",")[i]
-                    values.append(value.strip())
-            csvFile.append(values)
+        for i in range (0,rows):
+            line = read[i] # Reads the line of the for loops index
+            if i == 0:
+                for i in read[i]: # This for loop counts the number of columns for later use
+                    if i == ',': 
+                        columnCount = columnCount + 1
+                columnCount = columnCount + 1
+                for i in range(0,columnCount):
+                        columnName = read[i].split(",")[i]
+                        columnNames.append(columnName.strip())
+                csvFile.append(columnNames)
+            else:
+                values = []
+                for i in range(0,columnCount):
+                        value = line.split(",")[i]
+                        values.append(value.strip())
+                csvFile.append(values)
     return csvFile
 
 def specificValue(column,row,path):
@@ -55,10 +53,8 @@ def app(list,path):
         list (list): The list to be appended to the CSV file
         path (str): The path of the CSV file
     """
-    delim = ", "
-    res = '' 
+    delim,res  = ", ", ''
     for ele in list:
         res = res + str(ele) + delim
-    file1 = open(path,"a")
-    file1.write("\n" + res[:-2])
-    file1.close()
+    with open(path,"a") as file1:
+        file1.write("\n" + res[:-2])
