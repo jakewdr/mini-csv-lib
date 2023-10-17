@@ -1,37 +1,3 @@
-def csvToDict (path):
-    """Converts CSV to dictionary and outputs it.
-
-    Args:
-        path (string): The path of the CSV file
-
-    Returns:
-        Dict: The CSV in dictionary form
-    """
-    columnCount = int(0); columnNames = []; csvFile = {}; count = int(0)
-    file=open(path,'r')
-    read = file.readlines()
-    rows = len(read)   
-    for i in range (0,rows):
-        line = read[i] # Reads the line of the for loops index
-        if i == 0:
-            for i in line: # This for loop counts the number of columns for later use
-                if i == ',': 
-                    columnCount = columnCount + 1
-            columnCount = columnCount + 1
-            for i in range(0,columnCount):
-                    columnName = line.split(",")[i]
-                    columnNames.append(columnName.strip())
-            csvFile["titleRow"] = columnNames
-            count = count + 1
-        else:
-            values = []; count = count + 1
-            for i in range(0,columnCount):
-                    value = line.split(",")[i]
-                    values.append(value.strip())
-            name = "row" + str(count-1)
-            csvFile[name] = values
-    return csvFile
-
 def csvToList(path):
     """Converts CSV to list and outputs it.
 
